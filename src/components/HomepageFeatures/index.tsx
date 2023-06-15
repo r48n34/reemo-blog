@@ -30,7 +30,7 @@ export default function HomepageFeatures(): JSX.Element {
                 </Grid>
             </Grid.Container>
 
-            <Spacer y={1} />
+            <Spacer y={2} />
     
         </Container>
         </section>
