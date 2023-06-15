@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Image, Spacer } from "@nextui-org/react";
+import { Container, Grid, Image, Spacer, Badge } from "@nextui-org/react";
 import BigFront from './BigFront';
 import SmallFront from './SmallFront';
 import myImageUrl from '../../../static/img/12178_color.png';
@@ -18,10 +18,11 @@ export default function HomepageFeatures(): JSX.Element {
                 </Grid>
                 <Grid md={6}>
                     <div>
+                    {/* <Badge color="primary">New</Badge> */}
                     <Image   
                         showSkeleton
                         css={{ borderRadius: "15px", marginTop: "60px" }}
-                        width={"80%"}  
+                        width={"78%"}  
                         src={myImageUrl}
                         alt="Default Image"
                     />

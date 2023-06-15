@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from "@nextui-org/react";
+import { Text, Tooltip, Loading, Progress } from "@nextui-org/react";
 
 function BigFront() {
     return (
@@ -14,6 +14,7 @@ function BigFront() {
                 weight="bold"
             >
                 Eat
+                {/* <Loading size="xl"/> */}
             </Text>
 
             <Text
@@ -26,20 +27,28 @@ function BigFront() {
                 weight="bold"
             >
                 Sleep
+                <Progress
+                    indeterminated
+                    value={50} size="sm"
+                    color="warning"
+                    status="warning"
+                />
             </Text>
 
+            <Tooltip content={"And coding maybe?"} contentColor="warning" color="white" placement="right"  css={undefined}>
             <Text
                 hideIn={"xs"}
                 h1 size={"20vh"}
                 css={{
                     textGradient: "45deg, $yellow600 -20%, $red600 100%",
-                    marginTop: "-65px",
+                    marginTop: "-50px",
                     letterSpacing: "3px"
                 }}
                 weight="bold"
             >
-                Recycle
+                Repeat
             </Text>
+            </Tooltip>
         </>
     )
 }
