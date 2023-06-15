@@ -26,12 +26,12 @@ openai.api_key = dotenv_values(".env")["OPEN_AI_APIKEY"]
 def gptGen():
 
     result = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=[
+        model="gpt-3.5-turbo",
+        messages=[
             { "role": "user", "content": "Help me to make a instagram post"},
         ]
     )
-    
+
     print(result.choices[0].message.content)
 
 if __name__ == "__main__":
