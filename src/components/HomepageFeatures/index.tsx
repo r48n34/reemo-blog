@@ -9,7 +9,7 @@ export default function HomepageFeatures(): JSX.Element {
         <section>
         <Container css={{ marginTop: "0px" }}>
 
-            <Grid.Container gap={2} justify="center">
+            <Grid.Container gap={4} justify="center">
                 <Grid md={6}>
                     <div>
                     <BigFront/>
