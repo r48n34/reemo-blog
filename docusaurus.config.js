@@ -79,6 +79,7 @@ const config = {
           },
         ],
       },
+      metadata: [{name: 'keywords', content: 'coding, blog, reemo, reemo studio'}],
       footer: {
         style: 'dark',
         links: [
@@ -119,12 +120,17 @@ const config = {
           // },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Reemo.`,
+        
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
+    markdown: {
+      mermaid: true,
+    },
+    themes: ['@docusaurus/theme-mermaid'],
 };
 
 module.exports = config;

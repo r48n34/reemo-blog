@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # Chat GPT Python
 
+## Config
+
 Create a api key from here:   
 https://platform.openai.com/account/api-keys    
 
@@ -16,6 +18,8 @@ Then add the library with
 ```bash
 pip install openai dotenv
 ```
+
+## Code
 
 ```python showLineNumbers title="chat.py"
 from dotenv import dotenv_values

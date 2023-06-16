@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Chat GPT NodeJs
 
+## Config
+
 Create a api key from here:   
 https://platform.openai.com/account/api-keys    
 
@@ -16,6 +18,8 @@ Then add the library with
 ```bash
 yarn add openai dotenv
 ```
+
+## Code
 
 ```ts showLineNumbers title="openat.ts"
 import { Configuration, OpenAIApi } from "openai"

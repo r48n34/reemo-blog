@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container, Grid, Image, Spacer, Badge } from "@nextui-org/react";
+import { Container, Grid, Image, Spacer, Badge, NextUIProvider } from "@nextui-org/react";
 import BigFront from './BigFront';
 import SmallFront from './SmallFront';
 import myImageUrl from '../../../static/img/12178_color.png';
 
 export default function HomepageFeatures(): JSX.Element {
     return (
+        <NextUIProvider>
         <section>
         <Container css={{ marginTop: "0px" }}>
 
@@ -34,5 +35,6 @@ export default function HomepageFeatures(): JSX.Element {
     
         </Container>
         </section>
+        </NextUIProvider>
     );
 }
