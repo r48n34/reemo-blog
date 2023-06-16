@@ -1,0 +1,35 @@
+# [Web] ffuf 
+Better wfuzz
+
+## Basic usage
+### Buste a file / dir
+```bash
+ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://target/FUZZ
+```
+
+### Buste a Query
+```bash
+ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://target/script.php?FUZZ=test_value
+```
+
+### Buste a Query
+```bash
+ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://target/script.php?FUZZ=test_value
+```
+
+### Buste a POST data
+- `-fc`: filtering out the 401 responses
+
+```bash
+ffuf -w /path/to/postdata.txt -X POST -d "username=admin\&password=FUZZ" -u https://target/login.php -fc 401
+```
+
+### Buste a POST JSON data
+`-w`: word list path
+`-X`: HTTP Method
+`-H`: Headers
+`-d`: Data
+`-fr`: Match all responses not containing text "error"
+```bash
+ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://example.org/ -X POST -H "Content-Type: application/json" -d '{"name": "FUZZ", "anotherkey": "anothervalue"}' -fr "error"
+```

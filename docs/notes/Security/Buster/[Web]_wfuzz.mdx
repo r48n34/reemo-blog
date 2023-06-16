@@ -1,0 +1,19 @@
+# [Web] wfuzz 
+Similar to gobuster
+
+Using the word `FUZZ` as the variables
+
+## Guess the file / folder, ignore 404
+```bash
+wfuzz -z file,/usr/share/wordlists/wfuzz/general/medium.txt http://10.129.158.135/FUZZ
+```
+
+## Guess the file / folder
+```bash
+wfuzz -z file,/usr/share/wordlists/wfuzz/general/medium.txt --hc 404 http://10.129.158.135/FUZZ
+```
+
+## Guess sub domain
+```bash
+wfuzz -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -H "Host: FUZZ.thetoppers.htb" --sc 302 http://thetoppers.htb/
+```

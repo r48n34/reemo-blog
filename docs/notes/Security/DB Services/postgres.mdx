@@ -1,0 +1,59 @@
+# PostgreSql
+
+## Connect to PostgreSql
+```bash
+psql -h <hostname> -p <port> -U <username> -d <database>
+psql -h myhost -p 5432 -U myapplicationuser -d applicationdb
+```
+
+- With host
+```bash
+postgresql://<username>:<password>@<hostname>:<port>/<database>
+psql postgresql://myapplicationuser:mypass@myhost:1234/applicationdb
+```
+
+## Basic usage
+
+### List all database
+```bash
+\l
+```
+
+### Connect to specific database 
+```bash
+\c <db_name>
+\c users
+```
+
+### List all tables in database
+```bash
+\d
+```
+
+### List all details with the tables
+```bash
+\d+ <table_name>
+```
+
+### Delete stuff
+
+#### Delete database
+```bash
+DROP DATABASE <database_name>;
+```
+
+#### Delete tables
+```bash
+DROP TABLE <table_name>;
+```
+
+## Create user
+```bash
+CREATE USER <user_name> WITH PASSWORD '<user_password>' SUPERUSER;
+ALTER ROLE <user_name> WITH LOGIN;
+```
+
+## Exit
+```bash
+quit  
+```

@@ -1,0 +1,30 @@
+# MySql / MariaDB
+
+## Connect to mySql
+```bash
+mysql -h localhost -u myname -p mydb
+```
+- `-h`: host ip
+- `-u`: username
+- `-p`: password
+
+### Advance tag for connect
+- `--port=13306`: specific port
+- `--protocol=TCP`: specific protocol
+
+## Inside usage
+
+### Show all database
+```bash
+SHOW DATABASES;
+```
+
+### Goto that database
+```bash
+USE my_target_db;
+```
+
+### Shows all tables in database
+```bash
+SHOW TABLES
+```
