@@ -4,14 +4,14 @@ sidebar_position: 1
 
 # [Basic] Basic 
 
-## Basic start up
+## Basic start up from zero
 
 ```bash title="Terminal"
 npm init -y
 
 npm install express
-npm install -D ts-node typescript @types/node
-npm install -D @types/express
+npm install -D ts-node typescript
+npm install -D @types/node @types/express
 ```
 
 ```json title="tsconfig.json"
