@@ -6,8 +6,7 @@ sidebar_position: 1
 
 ## Install
 
-### with `npm`
-```bash
+```bash title="npm"
 npm install pm2 -g
 ```
 
