@@ -32,7 +32,7 @@ function BigFront() {
                 
             </Text>
 
-            <Tooltip content={"And coding maybe?"} contentColor="warning" color="white" placement="right"  css={undefined}>
+            <Tooltip content={"And dinner maybe?"} contentColor="warning" color="white" placement="right"  css={undefined}>
             <Text
                 hideIn={"xs"}
                 h1 size={"20vh"}
@@ -44,7 +44,7 @@ function BigFront() {
                 }}
                 weight="bold"
             >
-                Repeat
+                Code
             </Text>
             </Tooltip>
         </>

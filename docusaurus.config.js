@@ -71,7 +71,7 @@ const config = {
             sidebarId: 'notes',
             label: 'Notes',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          // {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/r48n34',
             label: 'GitHub',

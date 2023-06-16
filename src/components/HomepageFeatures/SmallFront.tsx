@@ -35,7 +35,7 @@ function SmallFront() {
                 }}
                 weight="bold"
             >
-                Recycle
+                Code
             </Text>
         </>
     )
