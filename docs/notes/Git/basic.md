@@ -21,3 +21,19 @@ git commit -m "message"
 git pull
 git push
 ```
+
+## branches
+
+### Create a new branch
+```bash
+git checkout -b <brance_name>
+
+git checkout -b development
+```
+
+### Goto exist branch
+```bash
+git checkout <brance_name>
+
+git checkout development
+```
