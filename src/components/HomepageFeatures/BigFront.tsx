@@ -22,12 +22,13 @@ function BigFront() {
                 h1 size={"20vh"}
                 css={{
                     textGradient: "45deg, $blue600 -20%, $pink600 50%",
-                    marginTop: "-65px", letterSpacing: "3px"
+                    marginTop: "-30px", letterSpacing: "3px"
                 }}
                 weight="bold"
             >
                 Sleep
                 <Progress
+                    css={{ marginTop: "15px" }}
                     indeterminated
                     value={50} size="sm"
                     color="warning"
@@ -41,7 +42,7 @@ function BigFront() {
                 h1 size={"20vh"}
                 css={{
                     textGradient: "45deg, $yellow600 -20%, $red600 100%",
-                    marginTop: "-50px",
+                    marginTop: "-30px",
                     letterSpacing: "3px"
                 }}
                 weight="bold"
