@@ -6,9 +6,15 @@ import myImageUrl from '../../../static/img/12178_color.png';
 
 export default function HomepageFeatures(): JSX.Element {
     return (
-        <NextUIProvider>
-        <section>
-        <Container css={{ marginTop: "0px" }}>
+        
+        <section
+            style={{
+                position: "relative",
+            }}
+            className='my-css-bg'
+        >
+
+        <Container css={{ marginTop: "0px" }} >
 
             <Grid.Container gap={4} justify="center">
                 <Grid md={6}>
@@ -20,10 +26,11 @@ export default function HomepageFeatures(): JSX.Element {
                 <Grid md={6}>
                     <div>
                     {/* <Badge color="primary">New</Badge> */}
-                    <Image   
+                    <Image
+                        
                         showSkeleton
                         css={{ borderRadius: "15px", marginTop: "60px" }}
-                        width={"78%"}  
+                        width={"85%"}  
                         src={myImageUrl}
                         alt="Default Image"
                     />
@@ -32,9 +39,9 @@ export default function HomepageFeatures(): JSX.Element {
             </Grid.Container>
 
             <Spacer y={2} />
-    
+        
         </Container>
         </section>
-        </NextUIProvider>
+        // </NextUIProvider>
     );
 }

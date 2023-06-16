@@ -15,6 +15,10 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --my-bg-color: #e5e5f7;
+  --my-bg-dot-color: #8d8fa8;
+  --my-bg-dot-color-sub: #e5e5f7;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,4 +31,14 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --my-bg-color: #1b1b1b;
+  --my-bg-dot-color: #7e7a7a;
+  --my-bg-dot-color-sub: #2e2e2e;
+}
+
+.my-css-bg {
+  /* background-color: var(--my-bg-color); */
+  background-image: radial-gradient(var(--my-bg-dot-color) 0.9500000000000001px, var(--my-bg-dot-color-sub) 0.9500000000000001px);
+  background-size: 19px 19px;
 }

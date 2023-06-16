@@ -9,7 +9,8 @@ function BigFront() {
                 h1 size={"20vh"}
                 css={{
                     textGradient: "45deg, $blue600 -20%, $pink600 50%",
-                    letterSpacing: "3px"
+                    letterSpacing: "3px",
+                    textShadow: "0px 0px 6px rgba(255,255,255,0.7)"
                 }}
                 weight="bold"
             >
@@ -22,18 +23,13 @@ function BigFront() {
                 h1 size={"20vh"}
                 css={{
                     textGradient: "45deg, $blue600 -20%, $pink600 50%",
-                    marginTop: "-30px", letterSpacing: "3px"
+                    marginTop: "-30px", letterSpacing: "3px",
+                    textShadow: "0px 0px 6px rgba(255,255,255,0.7)"
                 }}
                 weight="bold"
             >
                 Sleep
-                <Progress
-                    css={{ marginTop: "15px" }}
-                    indeterminated
-                    value={50} size="sm"
-                    color="warning"
-                    status="warning"
-                />
+                
             </Text>
 
             <Tooltip content={"And coding maybe?"} contentColor="warning" color="white" placement="right"  css={undefined}>
@@ -43,7 +39,8 @@ function BigFront() {
                 css={{
                     textGradient: "45deg, $yellow600 -20%, $red600 100%",
                     marginTop: "-30px",
-                    letterSpacing: "3px"
+                    letterSpacing: "3px",
+                    textShadow: "0px 0px 6px rgba(255,255,255,0.7)"
                 }}
                 weight="bold"
             >
