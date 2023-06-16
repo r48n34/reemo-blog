@@ -15,6 +15,12 @@ Download the git from https://git-scm.com/downloads
 Set the ssh from Github:  
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent  
 
+```bash
+ssh-keygen
+
+cat .ssh/id_rsa.pub
+```
+
 ### Local config
 
 For windows, install the nano from `choco` is the easiest way. Install `choco` with `node.js` first.

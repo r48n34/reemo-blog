@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Basic command 
+# [Basic] Basic command 
 
 ## Download 
 
@@ -87,4 +87,16 @@ More details with `\d+`
  id             | integer                  |           | not null | nextval('apple_id_seq'::regclass) | plain    |              |
  name1          | character varying(255)   |           |          |                                   | extended |              |
  level1         | character varying(255)   |           |          |                                   | extended |              |
+```
+
+## Basic Utils
+
+### Create User
+```bash
+CREATE USER <your-username-here> WITH PASSWORD 'your-password-here' SUPERUSER;
+CREATE USER peter WITH PASSWORD '123' SUPERUSER;
+
+# With Login 
+ALTER ROLE <your-username-here> WITH LOGIN
+ALTER ROLE peter WITH LOGIN
 ```
