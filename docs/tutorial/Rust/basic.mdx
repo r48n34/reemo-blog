@@ -1,0 +1,97 @@
+---
+sidebar_position: 1
+---
+
+# [Basic] Rust for typescript developers
+
+## Basic start up from zero
+
+```bash title="Terminal"
+cargo new hello_cargo
+cargo run
+
+# For build
+cargo build
+```
+
+## Number, Boolean and Tuple
+
+```rust title="number, boolean and tuple"
+fn main() {
+    let num:i32 = 5; // Default is const
+    let mut num_two:i32 = 5; // let variables in typescript
+
+    let y: f32 = 3.0; // Floating number
+
+    let f: bool = false; // Boolean
+
+    let tup: (i32, f64, u8) = (500, 6.4, 1); // Tuple
+    let (x, k, z) = tup; // Spread a Tuple
+
+    // Both printing method for variables
+    println!("The value of y is: {}", k);
+    println!("The value of y is: {k}");
+}
+```
+
+## String
+
+### Char, String and &str
+```rust title="string"
+fn main() {
+    let z: char = 'z'; // Char
+
+    let mut my_string: String = String::new(); // String
+    let greeting: &str = "Hello there."; // &str
+
+    my_string.push('W'); // String add a Char
+    my_string.push_str("mate"); // String add a string
+    my_string += "Hay";         // String add a string
+
+    // Care: &str （string slices） is a fixed const string,
+    //       while String is similar to a char[] in typescript
+
+    let s: String = greeting.to_string(); // `.to_string()` Convert &str to String
+}
+```
+
+### String add String
+By using `&format!("{}", String)` or `String.as_str()`
+```rust
+fn main() {
+    let mut str_A: String = "A".to_string();
+    let str_B: String = "B".to_string();
+
+    str_A.push_str(&format!("{}", str_B)); // Method A `&format!("{}", str_B)`
+    str_A.push_str(str_B.as_str());        // Method B `str_B.as_str()`
+    println!("{str_A}") // AB
+}
+```
+
+### &str add &str
+By using `format!("{}{}", a, b)` or Array join `[a, b].join("")`
+```rust
+fn main() {
+    let a = "Hello";
+    let b = "world";
+    let result_A = format!("{}{}", a, b); // Method A
+    let result_B = [a, b].join("");       // Method B
+
+    print!("{}, {}", result_A, result_B);
+}
+```
+
+### String add &str
+By using `+`
+```rust
+fn main() {
+    let str_A: String = "hello ".to_owned();
+    let str_B: &str = "world";
+    
+    let new_str_A: String = str_A + str_B;
+    println!("{}", new_str_A);
+}
+```
+
+
+Work in Progress
