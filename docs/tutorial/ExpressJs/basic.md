@@ -10,8 +10,7 @@ sidebar_position: 1
 npm init -y
 
 npm install express
-npm install -D ts-node typescript
-npm install -D @types/node @types/express
+npm install -D ts-node typescript @types/node @types/express
 ```
 
 ```json title="tsconfig.json"
@@ -49,7 +48,6 @@ app.get("/", function (req: Request, res: Response) {
 });
 
 const PORT = 8080;
-
 app.listen(PORT, () => {
   console.log(`Listening at http://localhost:${PORT}/`);
 });
