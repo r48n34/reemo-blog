@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  SERVER_DIR: /home/cityu-ra
+  SERVER_DIR: /home/reemo-blog
 
 jobs:
   ssh-vm:
