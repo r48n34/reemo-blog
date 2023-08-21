@@ -23,4 +23,4 @@ jobs:
           cd ${{ env.SERVER_DIR }}
           git pull
           pm2 stop blog_server
-          pm2 start --name blog_server for-deploy.js
+          pm2 start --name blog_server ./for-deploy-blog.js
