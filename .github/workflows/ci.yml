@@ -1,0 +1,26 @@
+name: ci-flow
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+env:
+  SERVER_DIR: /home/cityu-ra
+
+jobs:
+  ssh-vm:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Executing remote ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: |
+          cd ${{ env.SERVER_DIR }}
+          git pull
+          pm2 stop blog_server
+          pm2 start --name blog_server for-deploy.js
