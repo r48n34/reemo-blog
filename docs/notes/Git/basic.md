@@ -31,14 +31,14 @@ choco install -y nano
 
 ```bash
 git config --global core.editor "nano"
-git config --global user.name "Reemo"
-git config --global user.email "reemo@gmail.com"
+git config --global user.name "Peter"
+git config --global user.email "peter123@gmail.com"
 ```
 
 ## Command
 
 ```bash
-git add .
+git add . # git add -A
 git commit -m "message"
 
 git pull
