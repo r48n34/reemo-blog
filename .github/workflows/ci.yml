@@ -42,10 +42,10 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           source: build/*
-          target: ${{ env.SERVER_DIR }}/build
+          target: ${{ env.SERVER_DIR }}
 
   ssh-vm:
-    needs: build-web
+    needs: upload-to-server
     runs-on: ubuntu-latest
     steps:
     - name: Executing remote ssh
