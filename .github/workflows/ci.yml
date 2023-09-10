@@ -10,9 +10,22 @@ env:
   SERVER_DIR: /home/reemo-blog
 
 jobs:
-  ssh-vm:
+  build-web:
     runs-on: ubuntu-latest
+    container: node:lts-alpine
     steps:
+      - uses: actions/checkout@v3
+      - name: Install npm deps
+        run: |
+          yarn 
+          yarn build
+      - name: archive built files
+        uses: actions/upload-artifact@v3
+        with:
+          name: server_code
+          path: build
+
+  ssh-vm:
     - name: Executing remote ssh
       uses: appleboy/ssh-action@master
       with:
