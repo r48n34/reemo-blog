@@ -44,18 +44,18 @@ jobs:
           source: build/*
           target: ${{ env.SERVER_DIR }}
 
-  ssh-vm:
-    needs: upload-to-server
-    runs-on: ubuntu-latest
-    steps:
-    - name: Executing remote ssh
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        password: ${{ secrets.SSH_PASSWORD }}
-        script: |
-          cd ${{ env.SERVER_DIR }}
-          git pull
-          pm2 stop blog_server
-          pm2 start --name blog_server ./for-deploy-blog.js
+  # ssh-vm:
+  #   needs: upload-to-server
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Executing remote ssh
+  #     uses: appleboy/ssh-action@master
+  #     with:
+  #       host: ${{ secrets.HOST }}
+  #       username: ${{ secrets.SSH_USERNAME }}
+  #       password: ${{ secrets.SSH_PASSWORD }}
+  #       script: |
+  #         cd ${{ env.SERVER_DIR }}
+  #         git pull
+  #         static-web-server --port 8084 --root ./build &
+        

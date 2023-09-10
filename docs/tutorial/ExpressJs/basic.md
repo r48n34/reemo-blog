@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # [Basic] Basic 
 
-## Basic start up from zero
+## Basic start-up from zero to one
 
 ```bash title="Terminal"
 npm init -y
