@@ -19,14 +19,33 @@ jobs:
         run: |
           yarn 
           yarn build
-      - name: archive built files
+      - name: Archive built files
         uses: actions/upload-artifact@v3
         with:
-          name: server_code
+          name: build_web
           path: build
 
+  upload-to-server:
+    needs: build-web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: restore built files server
+        uses: actions/download-artifact@v3
+        with:
+          name: build_web
+          path: build
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: build/*
+          target: ${{ env.SERVER_DIR }}/build
+
   ssh-vm:
-    name: SSH-VM
+    needs: build-web
     runs-on: ubuntu-latest
     steps:
     - name: Executing remote ssh
