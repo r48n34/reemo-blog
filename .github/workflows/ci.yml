@@ -26,6 +26,7 @@ jobs:
           path: build
 
   ssh-vm:
+    steps:
     - name: Executing remote ssh
       uses: appleboy/ssh-action@master
       with:
