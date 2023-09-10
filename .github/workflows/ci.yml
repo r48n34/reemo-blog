@@ -26,6 +26,8 @@ jobs:
           path: build
 
   ssh-vm:
+    name: SSH-VM
+    runs-on: ubuntu-latest
     steps:
     - name: Executing remote ssh
       uses: appleboy/ssh-action@master
