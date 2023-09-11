@@ -60,6 +60,16 @@ app.post('/api', function (req, res) {
 });
 ```
 
+```js showLineNumbers title="frontend"
+const res = await fetch( "http://localhost:8080/api" ,{
+  method:"POST",
+  headers:{ 
+    "Content-Type":"application/json"
+  },
+  body: JSON.stringify(formObject);
+});
+```
+
 ### multipart/form-data
 
 With `formidable`  
