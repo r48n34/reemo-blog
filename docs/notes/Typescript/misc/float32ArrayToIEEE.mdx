@@ -1,0 +1,28 @@
+# [BUFF] float32Array To IEEE
+
+```ts
+/**
+ * @param {Float32Array} raw_data
+ * @returns {number[]}
+*/
+export function float32ArrayToIEEE(raw_data: Float32Array){
+    let result: number[] = []
+
+    for(let i = 0; i < raw_data.length; i += 4){
+
+        const bytes = [raw_data[i], raw_data[i + 1], raw_data[i + 2], raw_data[i + 3]];
+        const buffer = new ArrayBuffer(bytes.length);
+        const byteArray = new Uint8Array(buffer);
+
+        for (let i = 0; i < bytes.length; i++) {
+            byteArray[i] = bytes[i];
+        }
+
+        const floatArray = new Float32Array(buffer);
+        const floatValue = floatArray[0];
+        result.push(floatValue)
+    }
+
+    return result
+}
+```
