@@ -24,3 +24,18 @@ sudo apt-get install nodejs
 
 node -v
 ```
+
+## Nodejs nvm
+
+https://github.com/nvm-sh/nvm   
+
+```bash
+# Install
+nvm install node # "node" is an alias for the latest version
+nvm install 14.7.0 # or 16.3.0, 12.22.1, etc
+
+# Use specific version
+nvm use node
+nvm use 16
+nvm use 14
+```
