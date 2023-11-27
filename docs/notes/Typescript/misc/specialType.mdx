@@ -44,8 +44,60 @@ type Preferences = keyof typeof preferences; // "language" | "theme"
 ## `as const`
 To implement `fully readonly objects` for types.  
 
-### Array usage
+### Array usage 
+
 ```ts
 const options = ['easy', 'normal', 'hard'] as const
-type Difficulty = typeof options[number] // "easy" | "normal" | "hard"
+type Difficulty = typeof options[number] // "easy" | "normal" | "hard"  
+```   
+
+## `extends`
+
+### 1. To extends a types / class.
+
+```ts
+interface Person {
+  age: number;
+  occupation: string;
+}
+
+interface Author extends Person {
+  firstName: string;
+  lastName: string;
+}
+```
+
+### 2. Special usage of accept all but not `null` and `undefined`.  
+
+```ts
+function funcB<T extends {}>() { }
+```
+
+## `Record`
+Create a set of `key` and `values` pair type object.
+
+```ts
+interface EmployeeType {
+    id: number
+    fullname: string
+    role: string
+}
+
+// Record<number, EmployeeType>
+let employees: Record<number, EmployeeType> = {
+    0: { id: 1, fullname: "John Doe", role: "Designer" },
+    1: { id: 2, fullname: "Ibrahima Fall", role: "Developer" },
+    2: { id: 3, fullname: "Sara Duckson", role: "Developer" },
+}
+```
+
+```ts
+type CatNames = "miffy" | "boris" | "mordred";
+type CatList = Record<CatNames, {age: number}>
+
+const cats: CatList = {
+    miffy: { age:99 },
+    boris: { age:16 },
+    mordred: { age:600 }
+}
 ```
