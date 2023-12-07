@@ -15,6 +15,10 @@ Set a `A/AAAA Record` in your cloud services like the following:
 Goto `/etc/nginx/sites-available/default` and add the following code in `default`
 
 ```bash
+sudo nano /etc/nginx/sites-available/default
+```
+
+```bash
 server{
     listen 80;
 
