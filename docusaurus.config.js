@@ -10,7 +10,8 @@ const config = {
   tagline: 'Deno are cool',
   favicon: 'img/favicon.ico',
 
-  url: 'https://your-docusaurus-test-site.com',
+
+  url: 'https://blog.r48n34.me/',
 
   baseUrl: '/',
 
@@ -105,7 +106,7 @@ const config = {
               },
               {
                 label: 'Personal site',
-                href: 'https://www.r48n34.me/',
+                href: 'https://new-reemo-studio.vercel.app/',
               },
             ],
           },
