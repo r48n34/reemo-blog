@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Undo git add
+# [Basic] Undo git add
 
 ## Undo all
 ```bash

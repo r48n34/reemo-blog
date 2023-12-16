@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# Config and install
+# [Basic] Install with venv
 
 ## - Download 
 

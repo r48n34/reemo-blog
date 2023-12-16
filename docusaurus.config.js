@@ -94,7 +94,7 @@ const config = {
               },
               {
                 label: 'Notes',
-                to: '/docs/notes/Javascript/Typescript/misc/float32ArrayToIEEE',
+                to: '/docs/notes/Languages/Javascript/NPM_publish',
               },
             ],
           },
