@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Image, Spacer, Badge, NextUIProvider } from "@nextui-org/react";
+import { Container, Grid, Image, Spacer } from "@nextui-org/react";
 import BigFront from './BigFront';
 import SmallFront from './SmallFront';
 import myImageUrl from '../../../static/img/12178_color.png';

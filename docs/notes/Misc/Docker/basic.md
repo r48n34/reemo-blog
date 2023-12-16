@@ -29,7 +29,11 @@ docker run -d -it -p 8080:8080 docker-example
 ### docker Compose
 ```bash
 docker-compose up
-docker-compose pull # pull the images that the `docker-compose` will use
+
+# pull the images that the `docker-compose` will use
+docker-compose pull
+
+# Run in background
 docker-compose up -d
 
 docker-compose stop
