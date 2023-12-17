@@ -1,5 +1,9 @@
 ---
 sidebar_position: 1
+tags:
+  - Npm
+  - Packages
+  - Javascript
 ---
 
 # [NPM] NPM Publish packages

@@ -5,7 +5,9 @@ sidebar_position: 2
 # [Config] Nodejs dockerfile
 
 
-## dockerfile
+## Dockerfile
+Normal dockerfile for a nodejs applications
+
 ```dockerfile title="dockerfile"
 FROM node:lts
 WORKDIR /usr/src/app
@@ -18,10 +20,13 @@ CMD yarn install && \
 ## Run file
 ```bash title="Terminal"
 docker build -t <your-image-tag> .
+
+# e.g.
+docker build -t nodeserver .
 ```
 
 ## With postgresql images
-```yml title="docker-compose.yml"
+```yaml title="docker-compose.yml"
 version: '3'
 
 services:

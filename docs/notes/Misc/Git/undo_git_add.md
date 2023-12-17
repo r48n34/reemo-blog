@@ -13,3 +13,8 @@ git reset
 ```bash
 git reset <file>
 ```
+
+## Undo one commit only
+```bash
+git reset --soft HEAD~1
+```

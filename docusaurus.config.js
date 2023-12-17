@@ -15,6 +15,8 @@ const config = {
     url: 'https://blog.r48n34.me/',
 
     baseUrl: '/',
+    
+
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
@@ -33,11 +35,13 @@ const config = {
 
     presets: [
         [
-            'classic',
+            '@docusaurus/preset-classic',
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
+                    showLastUpdateTime: true,
+                    // showLastUpdateAuthor: true,
                 },
                 blog: {
                     showReadingTime: true,
@@ -137,7 +141,7 @@ const config = {
             prism: {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
-                additionalLanguages: ['rust'],
+                additionalLanguages: ['rust', 'bash', 'powershell', 'json'],
             },
         }),
     markdown: {

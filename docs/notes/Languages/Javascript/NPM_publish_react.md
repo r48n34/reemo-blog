@@ -1,5 +1,9 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
+tags:
+  - Npm
+  - Packages
+  - React
 ---
 
 # [NPM] NPM Publish react components
