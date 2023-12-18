@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # [Basic] Static File 
@@ -11,23 +11,25 @@ Let's assume you have a folder like this
 ├── server.ts
 ├── package.json
 ├── tsconfig.json
-├── uploads
-│   ├── cars
+├── 📂uploads
+│   ├── 📂cars
 │   │   ├──coolCars.jpeg 
-│   │   ├── moreCarFolder
+│   │   ├──  📂moreCarFolder
 │   │   │     └── cuteCar.jpeg 
 │   │   └── adorableBMW.gif
 │   ├── yolo.jpeg 
 │   ├── hello.html 
-│   └── mouse
+│   └── 📂mouse
 │        └── music.mp3 
-└── public
+└── 📂public
     ├── index.js
     ├── index.html
     └── index.css
 ```
 
-## Usage
+## `express.static()` Usage
+
+The `express.static()` can help to feed static file / folder without using `res.send()`.
 
 ```ts showLineNumbers title="server.ts"
 import express from "express";
@@ -52,7 +54,8 @@ app.listen(PORT, () => {
 });
 ```
 
-To get the specific file, you may follow the regarind pattens
+To get the specific file, you may follow the regarind pattens.
+
 ```md
 app.use(express.static("public"));
 app.use('/uploads', express.static("uploads"))
@@ -73,7 +76,7 @@ cuteCar.jpeg
 http://localhost:8080/uploads/cars/moreCarFolder/cuteCar.jpeg
 ```
 
-## `express.static()`
+## `express.static()` with `__dirname`
 
 ```ts
 // Normal ways

@@ -7,12 +7,14 @@ The following guild will shows how to recived data from API with `Params`, `Quer
 
 ## Params
 
+The params is a MUST type in data method in order to active the regarding API.  
+
 ### Single Params
 ```ts showLineNumbers title="[GET] http://localhost:8080/api/13"
 // Single params
 app.get("/api/:id", function (req: Request, res: Response) {
-  const { id } = req.params; // 13
-  res.json({ data: id });
+    const { id } = req.params; // 13
+    res.json({ data: id });
 });
 ```
 
@@ -20,34 +22,85 @@ app.get("/api/:id", function (req: Request, res: Response) {
 ```ts showLineNumbers title="[GET] http://localhost:8080/api/13/peter"
 // Single params
 app.get("/api/:id/:name", function (req: Request, res: Response) {
-  const { id, name } = req.params; // 13, peter
-  res.json({ data: id, name: name });
+    const { id, name } = req.params; // 13, peter
+    res.json({ data: id, name: name });
 });
 ```
 
 ## Query
 
+The query is a OPTIONALS type in data method, means you can still access the regarding API without input any query.
+
 ### Single Query
 ```ts showLineNumber title="[GET] http://localhost:8080/api?id=14"
-// Single Query
+// Single query
 app.get("/api", function (req: Request, res: Response) {
-  const { id } = req.query; // 14
-  res.json({ data: id });
+    const { id } = req.query; // 14
+    res.json({ data: id });
 });
 ```
 
 ### Multi Query
 ```ts showLineNumbers title="[GET] http://localhost:8080/api?id=14&name=tom"
-// Single params
-app.get("/api/:id/:name", function (req: Request, res: Response) {
-  const { id, name } = req.query; // 14, tom
-  res.json({ data: id, name: name });
+// Single query
+app.get("/api", function (req: Request, res: Response) {
+    const { id, name } = req.query; // 14, tom
+    res.json({ data: id, name: name });
 });
 ```
 
+## Different between `params` and `Query`
+
+As the top said, let's see the different of a `params` and `Query` API.
+
+```ts showLineNumbers title="params"
+app.get("/api/:id", function (req: Request, res: Response) {
+    const { id } = req.params; // 13
+    res.json({ data: id });
+});
+```
+
+```md title="params responds"
+- Normal ways ⭕
+[GET] http://localhost:8080/api/13
+Respond: { data: 13 }
+
+- No params cases ⛔
+[GET] http://localhost:8080/api
+Respond: 404 Route not found
+```
+
+```ts showLineNumbers title="query"
+app.get("/api", function (req: Request, res: Response) {
+    const { id } = req.query;
+    res.json({ data: id });
+});
+```
+
+```md title="query responds"
+// Normal ways ⭕
+// [GET] http://localhost:8080/api?id=80
+// Respond: { data: 80 }
+
+// No query cases ⭕
+// [GET] http://localhost:8080/api
+// Respond: { data: null }
+```
+
+In `query`, the API still accessable without inputing ID. Means if you require your user to input stuff, we better suggest to use `params` compare to `query`.
+
+:::tip
+
+Yet, you can still set up constraints to require user input `query` in API logics or using other checking libraries / packages like `zod`, `yum`, `express-validator` or others.
+
+:::
+
 ## Body
 
+Body is a method to recive HTML data like `<forms>` or `body in fetch`.
+
 ### Json data
+In default, we have to added `express.json()` and `express.urlencoded({ extended: true })` to let expressjs for parse body data.
 ```ts showLineNumber title="server.ts"
 // Add these line to your server
 app.use(express.json());
@@ -56,20 +109,35 @@ app.use(express.urlencoded({ extended: true }));
 
 ```ts showLineNumbers title="[POST] http://localhost:8080/api"
 app.post('/api', function (req, res) {
-  console.log(req.body);
-  res.json({ data: id, name: name });
+    console.log(req.body);
+    res.json({ 
+        status: true,
+        data: req.body.id,
+        name: req.body.name
+    });
 });
 ```
 
-```js showLineNumbers title="frontend"
+```js showLineNumbers title="frontend.js"
 const res = await fetch( "http://localhost:8080/api" ,{
-  method:"POST",
-  headers:{ 
-    // Authorization: `Bearer ${token}`,
-    "Content-Type":"application/json"
-  },
-  body: JSON.stringify(formObject);
+    method:"POST",
+    headers:{ 
+        // Authorization: `Bearer ${token}`,
+        "Content-Type":"application/json"
+    },
+    body: JSON.stringify({
+        id: 10,
+        name: "Peter"
+    });
 });
+
+const result = await res.json();
+console.log(result);
+/*
+    status: true,
+    data: 10,
+    name: "Peter"
+*/
 ```
 
 ### multipart/form-data
@@ -125,9 +193,9 @@ app.post('/data', async (req: express.Request, res: express.Response) => {
     const data = await formParse(form, req);
     
     return res.status(200).json({ 
-      status: true,
-      bodyData:  data.fields, // data.fields : The original form data (No Files)
-      filesData: data.files   // data.files : The media file data from form (Files)
+        status: true,
+        bodyData:  data.fields, // data.fields : The original form data (No Files)
+        filesData: data.files   // data.files : The media file data from form (Files)
     })
   }
   catch(err:any){

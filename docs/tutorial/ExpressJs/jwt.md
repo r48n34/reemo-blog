@@ -4,6 +4,9 @@ sidebar_position: 5
 
 # [Adv] JWT for authentication
 
+JSON Web Token (JWT) is a compact URL-safe means of representing claims to be transferred between two parties.
+
+
 ## Install
 https://www.npmjs.com/package/jsonwebtoken
 
@@ -28,7 +31,6 @@ export const jwtConfig = {
         expiresIn: "24h" 
     },
 };
-
 
 export function encodeDataToJwt(payload: object): string {
     return jwt.sign(
@@ -60,6 +62,8 @@ export function isLoginGuard(
 ){
     try {
         
+        // Auto check headers from fetch like: 
+        // Authorization: `Bearer ${token}`
         const token = permit.check(req);
     
         if(!token){
@@ -70,6 +74,7 @@ export function isLoginGuard(
         console.log(payload);
         
         // Check users data here if you want
+        // With DB or others method
 
         return next();
     } 
