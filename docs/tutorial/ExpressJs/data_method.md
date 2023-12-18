@@ -3,6 +3,7 @@ sidebar_position: 4
 ---
 
 # [Basic] Data method
+The following guild will shows how to recived data from API with `Params`, `Query` and `Body`.
 
 ## Params
 

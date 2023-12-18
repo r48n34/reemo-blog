@@ -4,7 +4,8 @@ sidebar_position: 1
 
 # [Basic] Basic 
 
-## Basic start-up from zero to one
+## Basic start-up
+This tutorial will guild to create a simple `express.js` web server from scratch with `typescript`.
 
 ```bash title="Terminal"
 npm init -y
@@ -19,6 +20,7 @@ npm install -D ts-node typescript @types/node @types/express
     "strict": true,
     "module": "commonjs",
     "target": "es6",
+    "outDir": "dist",
     "lib": ["es6", "dom"],
     "sourceMap": true,
     "allowJs": true,
@@ -27,22 +29,21 @@ npm install -D ts-node typescript @types/node @types/express
     "noImplicitReturns": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "suppressImplicitAnyIndexErrors": true,
     "strictNullChecks": true,
     "noUnusedLocals": true
   },
-  "exclude": ["node_modules", "test"]
+  "exclude": ["node_modules", "test", "dist"]
 }
 ```
 
-## Code
+## - Code
 
 ```ts title="server.ts"
-import express from "express";
-import { Request, Response } from "express";
+import express, { Request, Response } from "express";
 
 const app = express();
 
+// http://localhost:8080/
 app.get("/", function (req: Request, res: Response) {
     res.end("Hello mom!");
 });
@@ -53,6 +54,7 @@ app.listen(PORT, () => {
 });
 ```
 
+After created the `server.ts`, type the following command in the terminal.  
 ```bash title="Terminal"
 ts-node server.ts
 ```
@@ -60,6 +62,7 @@ ts-node server.ts
 ## Folder Structure
 ```md
 .
+├── 📂 node_modules
 ├── server.ts
 ├── package.json
 └── tsconfig.json
