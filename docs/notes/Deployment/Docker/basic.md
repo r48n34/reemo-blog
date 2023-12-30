@@ -20,6 +20,10 @@ docker build -t docker-example .
 
 ### - run
 Care `hostPort:containerPort` => `map_to_target_port:my_current_port`
+- `<Port-to-outside>:<Inside-port>`  
+
+For example, you got a express.js port to 8080, and you want your user to access with `http://xx.xx.xx.xx:32145`, you have to set:  
+- `32145:8080`
 
 ```bash
 docker run -d -it -p 8080:8080 <tag_name>
