@@ -131,7 +131,7 @@ kubectl delete pod <name>
 kubectl delete pod nginx-pod
 ```
 
-## - Rename Pod labels (inside variables)
+### - Rename Pod labels (inside variables)
 
 ```bash
 kubectl describe deployment
@@ -152,24 +152,23 @@ kubectl describe pods "$POD_NAME"
 kubectl get pods -l version=v1
 ```
 
-## - Deleting service
+### - Deleting service
 
 ```bash
 # kubectl delete service -l app=<name>
 kubectl delete service -l app=kubernetes-bootcamp
 ```
 
-## - Deleting ingress
+### - Deleting ingress
 
 ```bash
 kubectl get ns 
 
-# kubectl delete all  --all -n <name>
-
+# kubectl delete all --all -n <name>
 kubectl delete all  --all -n ingress-nginx
 ```
 
-## - Scaling a Deployment
+### - Scaling a Deployment
 
 ```bash
 # Print regarding info
@@ -189,7 +188,7 @@ kubectl get pods -o wide
 kubectl describe deployments/kubernetes-bootcamp
 ```
 
-## - Endpoints
+### - Endpoints
 
 ```bash
 # Print regarding info
@@ -198,13 +197,13 @@ kubectl get endpoints
 kubectl get pod -o wide
 ```
 
-## - Delete all stuff
+### - Delete all stuff
 
 ```bash
 kubectl delete deployment,service --all
 ```
 
-## - Ingress
+### - Create Ingress
 
 ```bash
 minikube addons enable ingress
