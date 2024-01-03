@@ -181,7 +181,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build_web
-          path: frontend-client/dist
+          path: distfiles
       - name: copy file via ssh password
         uses: appleboy/scp-action@v0.1.4
         with:
@@ -189,7 +189,8 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          source: frontend-client/dist/*
+          strip_components: 1
+          source: distfiles/*
           target: /home/someWhere/backend/public_web
 
   ssh-vm:
