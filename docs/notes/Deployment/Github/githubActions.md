@@ -7,7 +7,7 @@ sidebar_position: 1
 ## Running `jest` in action
 Basic to test out the nodejs function with `Jest`
 
-```yml
+```yml title="ci.yml"
 name: test-packages
 
 on:
@@ -43,7 +43,7 @@ on:
   workflow_dispatch:
 
 env:
-  SERVER_DIR: /home/somewhere
+  SERVER_DIR: /home/someWhere
 
 jobs:
   ssh-vm:
@@ -70,7 +70,7 @@ By using `appleboy/scp-action@v0.1.4`, upload the folder to server.
 - `actions/upload-artifact@v3`  
 - `appleboy/scp-action@v0.1.4`  
 
-```yml
+```yml title="ci.yml"
 name: ci-flow
 
 on:
@@ -116,4 +116,95 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           source: build/*
           target: ${{ env.SERVER_DIR }}
+```
+
+
+
+## Running Full build deployment
+
+Assume the following steps
+
+1. Build the react vite with `action runtime`.  
+2. Upload the build to your server with `scp`.  
+3. Run backend logics.  
+
+```md title="Folder structure"
+📂 .
+├── 📂 .github/workflows/ci.yml
+├─┬ 📂 backend (Express Vite)
+│ ├── 📂 dist
+│ ├── ...
+│ └── yarn.lock
+├─┬ 📂 frontend-client (React Vite)
+│ ├── 📂 dist
+│ ├── ...
+│ └── yarn.lock
+└── README.md
+```
+
+
+```yml title="ci.yml"
+name: ci-flow
+
+on:
+  push:
+    branches:
+      - 'deploy'
+  workflow_dispatch:
+
+env:
+  SERVER_DIR: /home/someWhere
+
+jobs:
+  build-web:
+    runs-on: ubuntu-latest
+    container: node:lts-alpine
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install npm deps
+        working-directory: ./frontend-client
+        run: |
+          yarn 
+          yarn build
+      - name: Archive built files
+        uses: actions/upload-artifact@v3
+        with:
+          name: build_web
+          path: frontend-client/dist
+  
+  upload-to-server:
+    needs: build-web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: restore built files server
+        uses: actions/download-artifact@v3
+        with:
+          name: build_web
+          path: frontend-client/dist
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          rm: true
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: frontend-client/dist/*
+          target: /home/someWhere/backend/public_web
+
+  ssh-vm:
+    needs: upload-to-server
+    runs-on: ubuntu-latest
+    steps:
+    - name: Executing remote ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: |
+          cd ${{ env.SERVER_DIR }}
+          git pull
+          cd backend
+          echo 'hello'
 ```
