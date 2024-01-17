@@ -47,8 +47,41 @@ To implement `fully readonly objects` for types.
 ### Array usage 
 
 ```ts
-const options = ['easy', 'normal', 'hard'] as const
-type Difficulty = typeof options[number] // "easy" | "normal" | "hard"  
+const optionsList = ['easy', 'normal', 'hard'] as const
+type Difficulty = typeof optionsList[number] // "easy" | "normal" | "hard"  
+```   
+
+```ts
+export const GESTURE_LIST = ["Unknown", "Closed_Fist", "Open_Palm"] as const
+
+export interface GestureObj {
+    label: string;
+    emoji: string;
+}
+
+export const GESTURE_DATA: {
+    [key in typeof GESTURE_LIST[number]]: GestureObj
+} = {
+    "Unknown": {
+        label: "Unrecognized gesture",
+        emoji: "❓"
+    },
+    "Closed_Fist": {
+        label: "Closed fist",
+        emoji: "✊"
+    },
+    "Open_Palm": {
+        label: "Open palm",
+        emoji: "✋"
+    }
+}
+
+// Types: 
+// const GESTURE_DATA: {
+//     Unknown: GestureObj;
+//     Closed_Fist: GestureObj;
+//     Open_Palm: GestureObj;
+// }
 ```   
 
 ## `extends`
@@ -57,13 +90,13 @@ type Difficulty = typeof options[number] // "easy" | "normal" | "hard"
 
 ```ts
 interface Person {
-  age: number;
-  occupation: string;
+    age: number;
+    occupation: string;
 }
 
 interface Author extends Person {
-  firstName: string;
-  lastName: string;
+    firstName: string;
+    lastName: string;
 }
 ```
 
