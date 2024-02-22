@@ -94,7 +94,11 @@ const config = {
                 {
                     name: 'keywords',
                     content: 'coding, blog, reemo, reemo studio'
-                }
+                },
+                {
+                    name: 'google-site-verification',
+                    content: 'MSmy-J4XDNXLBlFKqvooWG7RzHPvXmjhSo1BWtgF40E'
+                },
             ],
             footer: {
                 style: 'dark',
